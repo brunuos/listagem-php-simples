@@ -26,12 +26,10 @@
         </tr>
         <?php
             include 'conexao.php';
-            // Prepare the SQL query
             $query = "SELECT * FROM contacts";
 
             // Execute the query
             if ($result = $mysqli->query($query)) {
-                // Loop through the result set and display the records
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row['ID'] . "</td>";
@@ -42,13 +40,11 @@
                     echo "</tr>";
                 }
 
-                // Close the result set and the statement
                 $result->close();
             } else {
                 echo "Error: " . $mysqli->error;
             }
 
-            // Close the database connection
             $mysqli->close();
         ?>
     </table>
